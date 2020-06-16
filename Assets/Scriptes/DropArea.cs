@@ -6,6 +6,6 @@ public class DropArea : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        //we must detect the player name
+        GameManager.Instance.OnDrop(collision.gameObject.GetComponent<TowerComponent>().PlayerID);
     }
 }
