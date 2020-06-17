@@ -9,16 +9,22 @@ public class GameManager : MonoSingleton<GameManager>
     
     public int playerNumbers = 2;
     public int towersNumber = 3;
-    public static int gameState = 0;
+    private int gameState = 0;
     private int[] points;
     public Action<int> onDropAction;
     public Action<Vector2,float> onShootAction;
-   // public Action onChoosingCharacterAction;
+    public Action <Transform>onChoosingCharacterAction;
     public Player[] Players;
     // Start is called before the first frame update
+    protected override void OnAwake()
+    {
+        onDropAction = null;
+        onShootAction = null;
+    }
+
     void Start()
     {
-        Players = new Player[playerNumbers];
+        Players = FindObjectsOfType<Player>();
         points = Enumerable.Repeat(towersNumber,playerNumbers).ToArray(); //make first points for players  size palyerNumbers   amount : numTower 
     }
 
@@ -35,11 +41,13 @@ public class GameManager : MonoSingleton<GameManager>
         onShootAction(direction,power);
     }
 
-    public void OnChoosingCharacter(GameObject towerSelected)
+    public void OnChoosingCharacter(Transform towerSelected)
     {
         if (Players[gameState].playerID == towerSelected.GetComponent<TowerComponent>().PlayerID)
         {
             Players[gameState].select(towerSelected.GetComponent<TowerComponent>().index);
         }
+
+        onChoosingCharacterAction(towerSelected);
     }
 }

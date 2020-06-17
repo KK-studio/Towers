@@ -24,7 +24,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
         {
             _instance = (T) this;
             initialization();
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this);
 
         }  
         OnAwake();

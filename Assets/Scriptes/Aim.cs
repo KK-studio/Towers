@@ -13,7 +13,7 @@ public class Aim : MonoBehaviour
     public float power = 0;
     public bool active = false;
 
-    private Transform target;
+    private Vector3 target;
     [SerializeField] private Vector3 strechScale = new Vector3(1, 0, 0.3f); // just x and z is important
     [SerializeField]private bool testing = false; // you must turn this off when you want to use it in game
     [SerializeField]private float maxPower =3;
@@ -22,14 +22,14 @@ public class Aim : MonoBehaviour
 
     public void setTargetTransform(Transform goal) // dan u must call this  :)
     {
-        this.target = goal;
+        this.target = goal.position;
     }
 
 
     public void setup(Vector2 startPos,Vector2 endPos) 
     {
         flesh.SetActive(true);
-        this.transform.position = target.position; // go sprite in to the target place you must set it before setup phase
+        this.transform.position = target; // go sprite in to the target place you must set it before setup phase
         float directionAngle;
         directionVector = (endPos - startPos).normalized;
         float Stretched = Vector3.Distance(endPos ,startPos);
@@ -63,8 +63,9 @@ public class Aim : MonoBehaviour
         }
     }
 #endif
-    private void Start() 
+    private void Start()
     {
+        GameManager.Instance.onChoosingCharacterAction += setTargetTransform;
         disableFlesh();// disable ui at the start
     }
 

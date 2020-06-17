@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Lenovo\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Lenovo\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_Towers.1746145002.00" t="ExcludeRecursive" />
+    <e p="D:\Projects\Unity\Main\KK\Publishing Games\Towers" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scriptes" t="Include">
+          <e p="Aim.cs" t="Include" />
+          <e p="DropArea.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="PlayerEditor.cs" t="Include" />
+          </e>
+          <e p="GameManager.cs" t="Include" />
+          <e p="MonoSingleton.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="TouchController.cs" t="Include" />
+          <e p="TowerComponent.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Towers.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

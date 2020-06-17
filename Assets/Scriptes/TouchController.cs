@@ -19,6 +19,21 @@ public class TouchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR        
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                
+        if (Physics.Raycast(ray, out hit, 100000))
+        {
+            if (hit.collider.CompareTag("Tower"))
+            {
+                Debug.Log("selected");
+                Aim.disableFlesh();
+                GameManager.Instance.OnChoosingCharacter(hit.collider.transform);
+            }
+        }
+        
+#else
         if (Input.touchCount > 0)
         {
             Touch touch = Input.touches[0];
@@ -32,19 +47,21 @@ public class TouchController : MonoBehaviour
                 else//release aiming
                 {
                     Aim.disableFlesh();
-                    GameManager.Instance.OnShoot((startPos - endPos).normalized,1);//TODO power setter with stamina
+                    GameManager.Instance.OnShoot(Aim.directionVector,Aim.power);//TODO power setter with stamina
                 }
             }
             else if (touch.phase == TouchPhase.Began)
             {
                 //Selection system
-                RaycastHit hit = new RaycastHit();
-                Ray ray = new Ray(touch.position,Vector3.down);
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 
                 if (Physics.Raycast(ray, out hit, 1000))
                 {
-                    if (hit.collider.CompareTag("ClientTower"))
+                    if (hit.collider.CompareTag("Tower"))
                     {
+                        Debug.Log("selected");
+                        Aim.disableFlesh();
                         GameManager.Instance.OnChoosingCharacter(hit.collider.gameObject);
                     }
                 }
@@ -68,5 +85,6 @@ public class TouchController : MonoBehaviour
                 Aim.setup(endPos,startPos);                
             }
         }
+        #endif
     }
 }

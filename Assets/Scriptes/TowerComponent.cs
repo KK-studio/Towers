@@ -1,9 +1,9 @@
-﻿
-using System;
+﻿using UnityEngine;
 
-[Serializable]
-public class TowerComponent
+
+public class TowerComponent : MonoBehaviour
 {
- public int PlayerID;
- public int index;
+public int PlayerID;
+public int index;
+
 }
