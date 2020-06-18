@@ -24,9 +24,13 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
         {
             _instance = (T) this;
             initialization();
-            DontDestroyOnLoad(this);
-
-        }  
+            //DontDestroyOnLoad(this);TODO check
+        }
+        else
+        {
+            Destroy(_instance);
+            _instance = (T) this;
+        }
         OnAwake();
         
     }

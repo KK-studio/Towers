@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class TouchController : MonoBehaviour
@@ -8,13 +9,10 @@ public class TouchController : MonoBehaviour
     private bool isAiming = false;
     private Vector2 endPos;
     private Vector2 startPos;
-    
+    [SerializeField] private float timeToAim;
     [SerializeField] private Aim Aim;
+    private float timer = 0;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,12 +26,11 @@ public class TouchController : MonoBehaviour
             if (hit.collider.CompareTag("Tower"))
             {
                 Debug.Log("selected");
-                Aim.disableFlesh();
                 GameManager.Instance.OnChoosingCharacter(hit.collider.transform);
             }
         }
-        
 #else
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.touches[0];
@@ -47,11 +44,13 @@ public class TouchController : MonoBehaviour
                 else//release aiming
                 {
                     Aim.disableFlesh();
+                    isAiming = false;
                     GameManager.Instance.OnShoot(Aim.directionVector,Aim.power);//TODO power setter with stamina
                 }
             }
-            else if (touch.phase == TouchPhase.Began)
+            else if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
             {
+                timer += Time.deltaTime;
                 //Selection system
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -62,29 +61,45 @@ public class TouchController : MonoBehaviour
                     {
                         Debug.Log("selected");
                         Aim.disableFlesh();
-                        GameManager.Instance.OnChoosingCharacter(hit.collider.gameObject);
+                        GameManager.Instance.OnChoosingCharacter(hit.collider.transform);
                     }
                 }
                 /////////////////////////
-                else
+                if(timer > timeToAim)
                 {
-                    /*
                     isAiming = true;
                     startPos = touch.position;
                     endPos = startPos;
-                    Aim.setup(endPos,startPos); 
-                    */
+                    Aim.setup(endPos,startPos);
+                    timer = 0;
                 }
 
             }
-            else if(touch.phase == TouchPhase.Stationary)//start aiming
+            else if(touch.phase == TouchPhase.Moved)
+            {
+                timer += Time.deltaTime;
+                if(timer > timeToAim)
+                {
+                    isAiming = true;
+                    startPos = touch.position;
+                    endPos = startPos;
+                    Aim.setup(endPos,startPos);
+                    timer = 0;
+                }
+            }
+            else
+            {
+                timer = 0;
+            }
+            /*
+            else if()//start aiming
             {
                 isAiming = true;
                 startPos = touch.position;
                 endPos = startPos;
                 Aim.setup(endPos,startPos);                
-            }
+            }*/
         }
-        #endif
+#endif
     }
 }
