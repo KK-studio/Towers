@@ -8,7 +8,6 @@ public class DropArea : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("dead");
-        GameManager.Instance.OnDrop(other.gameObject.GetComponent<TowerComponent>().PlayerID);
-        Destroy(other.gameObject,0.5f);
+        GameManager.Instance.OnDrop(other.gameObject.GetComponent<TowerComponent>());
     }
 }

@@ -31,13 +31,17 @@ public class Aim : MonoBehaviour
 
     public void setup(Vector2 startPos,Vector2 endPos) 
     {
+        DebugHandler.Instance.showTextMassage("-->" + startPos.ToString() +"  " + endPos.ToString());
         flesh.SetActive(true);
         //this.transform.position = target; // go sprite in to the target place you must set it before setup phase
         float directionAngle;
-        directionVector = (endPos - startPos).normalized;
+        directionVector = 
+            (
+                (endPos - startPos).normalized + 
+             (new Vector2(Camera.main.transform.forward.x,Camera.main.transform.forward.z).normalized).normalized);
         float Stretched = Vector3.Distance(endPos ,startPos);
         this.active = true;
-        directionAngle = Vector2.SignedAngle(Vector2.right,directionVector); //targe euler angle
+        directionAngle = Vector2.SignedAngle(directionVector,Vector2.right); //targe euler angle
         power = Mathf.Clamp(Stretched*10, 5, maxPower);
         this.gameObject.transform.localScale = minmumSize + power * strechScale; //setup new angle
         this.gameObject.transform.eulerAngles = new Vector3(0, directionAngle, 0);//setup new scale

@@ -12,7 +12,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int towersNumber = 3;
     private int gameState = 0;
     private int[] points;
-    public Action<int> onDropAction;
+    //public Action<int> onDropAction;
    // public Action<Vector2,float> onShootAction;
     public Action <Transform>onChoosingCharacterAction;
     public Player[] Players;
@@ -20,10 +20,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField] private TouchController touchController;
     // Start is called before the first frame update
-    protected override void OnAwake()
-    {
-        onDropAction = null;
-    }
+
 
     void Start()
     {
@@ -38,11 +35,20 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
 
-    public void OnDrop(int playerID)
+    public void OnDrop(TowerComponent towerComponent)
     {
-        points[playerID]--;
-        onDropAction(playerID);
-        onTurnSwitch();
+        points[towerComponent.PlayerID]--;
+        Players[towerComponent.PlayerID].destroyTower();
+        if (points[towerComponent.PlayerID] == 0)
+        {
+            //TODO on win/lose action
+        }
+        else
+        {
+            //onDropAction(playerID);
+            onTurnSwitch();
+        }
+
     }
 
     public void OnShoot(Vector2 direction,float power)

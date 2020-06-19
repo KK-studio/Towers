@@ -80,6 +80,21 @@ public class Player : MonoBehaviour
         }
         onComplete();
     }
+
+    public void destroyTower()
+    {
+        Destroy(towers[selected].gameObject);
+        towers[selected] = null;
+        for (int i = 0; i < towers.Count; i++)
+        {
+            if (towers[i] != null)
+            {
+                selectedTarget = towers[i].transform;
+                selected = i;
+                break;
+            }
+        }
+    }
     
     public void select(int selected)
     {

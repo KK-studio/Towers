@@ -10,6 +10,7 @@
         <e p="Scriptes" t="Include">
           <e p="Aim.cs" t="Include" />
           <e p="CameraManager.cs" t="Include" />
+          <e p="DebugHandler.cs" t="Include" />
           <e p="DropArea.cs" t="Include" />
           <e p="Editor" t="Include">
             <e p="PlayerEditor.cs" t="Include" />
