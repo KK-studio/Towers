@@ -666,17 +666,11 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>F:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>F:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>F:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>F:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>F:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>F:/gains/kk studio/Towers/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
