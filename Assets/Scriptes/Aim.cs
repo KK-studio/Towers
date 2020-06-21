@@ -9,7 +9,7 @@ public class Aim : MonoBehaviour
     private Vector2 front = new Vector2(1, 0);
 
     public Vector3 minmumSize;
-    public Vector2 directionVector;
+    public Vector3 directionVector;
     public float power = 0;
     public bool active = false;
 
@@ -20,6 +20,10 @@ public class Aim : MonoBehaviour
 
     public GameObject flesh;
 
+    private float forWardCamZngle;
+
+    private Vector2 forwardCamDirection = Vector3.zero;
+
     public void setTargetTransform(Transform goal) // dan u must call this  :)
     {
         disableFlesh();
@@ -28,23 +32,40 @@ public class Aim : MonoBehaviour
         //  transform.localPosition = Vector3.zero;
     }
 
+    
 
     public void setup(Vector2 startPos,Vector2 endPos) 
     {
         DebugHandler.Instance.showTextMassage("-->" + startPos.ToString() +"  " + endPos.ToString());
-        flesh.SetActive(true);
+        
         //this.transform.position = target; // go sprite in to the target place you must set it before setup phase
+        
         float directionAngle;
-        directionVector = 
-            (
-                (endPos - startPos).normalized + 
-             (new Vector2(Camera.main.transform.forward.x,Camera.main.transform.forward.z).normalized).normalized);
+        Vector3 directionVector = (new Vector2(Camera.main.transform.forward.x,Camera.main.transform.forward.z));
+
+        
+        float t1 = 0;
+        float t2 = Vector2.SignedAngle((endPos-startPos).normalized,Vector2.up);
+        
+        
+        if (Vector2.Distance(forwardCamDirection,directionVector) > 0.01f)
+        {
+            t1 = Vector2.Angle(new Vector2(transform.forward.x,transform.forward.z),directionVector);
+            forwardCamDirection = directionVector;
+            transform.Rotate(0,t1,0);
+            forWardCamZngle = transform.eulerAngles.y;
+        }
+        
+        transform.eulerAngles = new Vector3(0, forWardCamZngle+t2, 0);//setup new scale
+
+        
+       this.directionVector = transform.forward.normalized;
+        
         float Stretched = Vector3.Distance(endPos ,startPos);
         this.active = true;
-        directionAngle = Vector2.SignedAngle(directionVector,Vector2.right); //targe euler angle
         power = Mathf.Clamp(Stretched*10, 5, maxPower);
-        this.gameObject.transform.localScale = minmumSize + power * strechScale; //setup new angle
-        this.gameObject.transform.eulerAngles = new Vector3(0, directionAngle, 0);//setup new scale
+        transform.localScale = minmumSize + power * strechScale; //setup new angle
+        flesh.SetActive(true);
     }
 
     public void disableFlesh()
@@ -61,12 +82,15 @@ public class Aim : MonoBehaviour
     {
         if (testing)
         {
+            setup(Vector2.down,Vector2.down);
+            /*
             flesh.SetActive(true);
             float directionAngle;
             directionAngle = Vector2.SignedAngle(Vector2.right, directionVector);
             power = Mathf.Clamp(power, 0, 1);
             this.gameObject.transform.localScale = minmumSize + new Vector3(power, 0, power);
             this.gameObject.transform.eulerAngles = new Vector3(0, directionAngle, 0);
+            */
         }
     }
 #endif

@@ -25,13 +25,16 @@ public class GameManager : MonoSingleton<GameManager>
     void Start()
     {
         Players = FindObjectsOfType<Player>();
-        Color[] colors = {Color.black, Color.red, Color.green, Color.yellow, Color.blue, Color.white, Color.magenta};
+        Color[] colorss = { Color.red,Color.blue, Color.white};
+        List<Color> colors = colorss.OfType<Color>().ToList();
         for (int i = 0; i < Players.Length; i++)
         {
-            Players[i].initializations(colors[Random.Range(0,colors.Length)]);
+            int random = Random.Range(0, colors.Count);
+            Players[i].initializations(colors[random]);
+            colors.RemoveAt(i);
         }
         points = Enumerable.Repeat(towersNumber,playerNumbers).ToArray(); //make first points for players  size palyerNumbers   amount : numTower 
-        onChoosingCharacterAction(Players[gameState].selectedTarget);
+        OnChoosingCharacter(Players[gameState].selectedTarget);
     }
 
 
@@ -51,7 +54,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     }
 
-    public void OnShoot(Vector2 direction,float power)
+    public void OnShoot(Vector3 direction,float power)
     {
         touchController.enabled = false;
         Players[gameState].shoot(direction,power,onTurnSwitch);
