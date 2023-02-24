@@ -12,7 +12,11 @@ public class Player : MonoBehaviour
     public bool isClient = false;
     public int playerID;
     public Transform selectedTarget;
-    
+
+    [SerializeField] private Material Onselection;
+    private Material lastMaterial;
+    private Color targetColor;
+    private Coroutine animationProgress;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,7 @@ public class Player : MonoBehaviour
 
     public void initializations(Color targetColor)// will call by game manager for syncing points
     {
+        this.targetColor = targetColor;
         GameObject randomSpawn = SpawnLocations[Random.Range(0,SpawnLocations.Length)];
         int i = 0;
         foreach (var t in towers)
@@ -42,7 +47,9 @@ public class Player : MonoBehaviour
             t.transform.position = randomSpawn.transform.GetChild(i).position;
             i++;
         }
-        select(0);
+        //select(0);
+        selected = 0;
+        selectedTarget = towers[0].transform;
     }
 
 
@@ -51,9 +58,9 @@ public class Player : MonoBehaviour
       //  GameManager.Instance.onShootAction -= shoot;
     }
 
-    public void shoot(Vector2 direction,float power,Action onFinishingForce)
+    public void shoot(Vector3 direction,float power,Action onFinishingForce)
     {
-        Vector3 force = new Vector3(direction.x,0,direction.y);
+        Vector3 force = new Vector3(direction.x,0,direction.z);
         towers[selected].GetComponent<Rigidbody>().AddForce(force*power,ForceMode.Impulse);
         StartCoroutine(checkingForce(onFinishingForce));
     }
@@ -98,12 +105,53 @@ public class Player : MonoBehaviour
     
     public void select(int selected)
     {
-        if(this.selected != -1)
-          towers[this.selected].transform.localScale /= 1.2f;
+        diSelect();
         this.selected = selected;
-        towers[selected].transform.localScale *= 1.2f;
+
+        lastMaterial = towers[selected].GetComponentInChildren<MeshRenderer>().material;
+        towers[selected].GetComponentInChildren<MeshRenderer>().material = Onselection;
+        if(animationProgress == null)
+            animationProgress = StartCoroutine(materialAnimation());
+        else
+        {
+            StopCoroutine(animationProgress);
+            animationProgress = StartCoroutine(materialAnimation());
+        }
         selectedTarget = towers[selected].transform;
 
         //TODO select action
+    }
+
+    private IEnumerator materialAnimation()
+    {
+        float t = 0f;
+        Onselection.SetColor("Color_4669EC58",targetColor);
+        while (true)
+        {
+            while (t < 2f)
+            {
+                Onselection.SetFloat("Vector1_68BB8CB8", t);
+                t+=0.1f;
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            while (t > 0f)
+            {
+                Onselection.SetFloat("Vector1_68BB8CB8", t);
+                t-=0.1f;
+                yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield break;
+    }
+    
+    public void diSelect()
+    {
+        if (this.selected != -1)
+        {
+            towers[this.selected].GetComponentInChildren<MeshRenderer>().material = lastMaterial;
+        }
     }
 }
