@@ -6,21 +6,13 @@ public class DragObject : MonoBehaviour
 {
     private bool isDragging = false;
     [SerializeField]private float throwForce = .5f;
-    private Vector3 initialPosition;
-    private Camera mainCamera;
 
     private Vector3 start_pos;
     
-    void Start()
-    {
-        initialPosition = transform.position;
-        mainCamera = Camera.main;
-    }
 
     void OnMouseDown()
     {
         isDragging = true;
-        
         start_pos = Input.mousePosition;
         start_pos.z = 20;
         start_pos = Camera.main.ScreenToWorldPoint(start_pos);

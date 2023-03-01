@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 6593731401742833845}
   - component: {fileID: 6593731401742833844}
   - component: {fileID: 6593731401742833841}
-  - component: {fileID: 1989118563261561400}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Tower
@@ -145,17 +144,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 2
---- !u!114 &1989118563261561400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6593731401742833846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab657801507dd74f8b5350e1d28c74e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerID: 0
-  index: 0
