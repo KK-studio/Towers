@@ -6,10 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="b682be64-17c1-4cde-9d9f-7cf74a0e24cd" name="Changes" comment="merged and touch controller added">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Towers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Towers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts_new/DragObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_new/DragObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Chess/Castle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Chess/Castle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/Aim.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/Aim.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/CameraManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/CameraManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/DebugHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/DebugHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/DropArea.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/DropArea.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/Editor/PlayerEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/Editor/PlayerEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/GameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/MonoSingleton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/MonoSingleton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/Player.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/Player.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/TouchController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/TouchController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/TowerComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/TowerComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts_new/Dragable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_new/Dragable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/shaders/slectionMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/shaders/slectionMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/shaders/test.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/shaders/test.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,17 +41,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/MonoSingleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/DebugHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/TouchController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/Editor/PlayerEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/DropArea.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/TowerComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/Aim.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scriptes/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd88a7f744c8413fa794c8fc6e0439f6144200/21/06f03792/Material.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b1444477c1d41c692ef6c02a838308529ac30/97/b9595181/List`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -139,7 +161,8 @@
       <workItem from="1592573935546" duration="320000" />
       <workItem from="1592652126065" duration="17692000" />
       <workItem from="1677609597588" duration="3328000" />
-      <workItem from="1677652162228" duration="3355000" />
+      <workItem from="1677652162228" duration="3955000" />
+      <workItem from="1677830419150" duration="5640000" />
     </task>
     <task id="LOCAL-00001" summary="merged and touch controller added">
       <created>1677264892860</created>

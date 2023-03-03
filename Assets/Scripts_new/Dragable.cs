@@ -5,14 +5,20 @@ using UnityEngine;
 
 public class Dragable : MonoBehaviour
 {
+    [SerializeField] private Renderer renderer;
     [SerializeField] private bool throwable = true;
-
     [SerializeField] private float height = 1f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float threshold = 0.1f;
     [SerializeField] private float throwForce = .5f;
 
 
+    // consts
+    private const float ACTIVE_TSH = 0.5f; 
+    private const float DEACTIVE_TSH = 5f; 
+
+    
+    
     private Vector3 mousePos;
     private Rigidbody _rigidbody;
     private bool isDragging = false;
@@ -21,11 +27,15 @@ public class Dragable : MonoBehaviour
     private void Start()
     {
         this._rigidbody = this.GetComponent<Rigidbody>();
+        highlightOffMaterial();
+        // material.SetColor("BaseColor",GameConfig.Instance.getBaseWhiteColor()) ;
+        
     }
-
+    
 
     void OnMouseDown()
     {
+        highlightMaterial();
         isDragging = true;
         startDragPos = Input.mousePosition;
         startDragPos.z = 20;
@@ -39,11 +49,11 @@ public class Dragable : MonoBehaviour
             Vector3 pos = Input.mousePosition;
             pos.z = 20;
             pos = Camera.main.ScreenToWorldPoint(pos);
-            Debug.Log("end :" + pos);
+            // Debug.Log("end :" + pos);
         
             isDragging = false;
             Vector3 throwDirection = startDragPos - pos;
-            Debug.Log("throw direction :" + throwDirection);
+            // Debug.Log("throw direction :" + throwDirection);
             throwDirection.y = 0; // never jump :)
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
@@ -71,9 +81,26 @@ public class Dragable : MonoBehaviour
 
     private void OnMouseUp()
     {
+        highlightOffMaterial();
         _rigidbody.useGravity = true;
     }
 
+
+
+    private void highlightMaterial()
+    {
+        Debug.Log("highlighted");
+        renderer.material.SetFloat("_Amount" , ACTIVE_TSH);
+    }
+    
+    
+    private void highlightOffMaterial()
+    {
+        renderer.material.SetFloat("_Amount" , DEACTIVE_TSH);
+        
+    }
+    
+    
     // IEnumerator moveSmooth(Vector3 tartgetPos)
     // {
     //     _rigidbody.useGravity = false;
