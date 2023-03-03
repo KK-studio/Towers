@@ -122,17 +122,15 @@ public class Dragable : MonoBehaviour
         return this._guid;
     }
 
-    // IEnumerator moveSmooth(Vector3 tartgetPos)
-    // {
-    //     _rigidbody.useGravity = false;
-    //     Debug.Log("get it");
-    //     Vector3 direction = (transform.position - tartgetPos).normalized;
-    //     while (Vector3.Distance(this.mousePos, tartgetPos) > threshold)
-    //     {
-    //         _rigidbody.MovePosition(_rigidbody.position + direction * Time.fixedDeltaTime * speed);
-    //         yield return new WaitForFixedUpdate();
-    //     }
-    //
-    //     _rigidbody.useGravity = true;
-    // }
+    public void setBaseMaterial(bool isWhite)
+    {
+        if (isWhite)
+        {
+            renderer.material = GameConfig.Instance.getBaseWhiteColor();
+        }
+        else
+        {
+            renderer.material = GameConfig.Instance.getBaseBlackColor();
+        }
+    }
 }

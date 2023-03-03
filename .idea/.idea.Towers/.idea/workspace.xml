@@ -7,6 +7,8 @@
     <list default="true" id="b682be64-17c1-4cde-9d9f-7cf74a0e24cd" name="Changes" comment="merged and touch controller added">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Towers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Towers/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts_new/Dragable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_new/Dragable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts_new/GameConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_new/GameConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts_new/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_new/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts_new/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_new/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +142,7 @@
       <workItem from="1677609597588" duration="3328000" />
       <workItem from="1677652162228" duration="3955000" />
       <workItem from="1677830419150" duration="5640000" />
-      <workItem from="1677860493823" duration="2398000" />
+      <workItem from="1677860493823" duration="5098000" />
     </task>
     <task id="LOCAL-00001" summary="merged and touch controller added">
       <created>1677264892860</created>

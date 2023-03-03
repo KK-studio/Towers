@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class GameConfig : MonoSingleton<GameConfig>
 {
-    [SerializeField] private Color baseWhiteColor;
-    [SerializeField] private Color baseBalckColor;
+    [SerializeField] private Material baseWhiteColor;
+    [SerializeField] private Material baseBalckColor;
+
+    [SerializeField] public float delayDestroyPawnAfterFall = 2f;
 
 
-
-    public Color getBaseBlackColor()
+    public Material getBaseBlackColor()
     {
         return baseBalckColor;
     }
     
-    public Color getBaseWhiteColor()
+    public Material getBaseWhiteColor()
     {
         return baseWhiteColor;
     }

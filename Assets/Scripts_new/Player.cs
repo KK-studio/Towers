@@ -10,9 +10,12 @@ public class Player : MonoBehaviour
     [SerializeField] private List<Dragable> pawns;
 
 
-    private void Awake()
+    private void Start()
     {
-        pawns = new List<Dragable>();
+        foreach (Dragable pawn in pawns)
+        {
+            pawn.setBaseMaterial(isWhite);
+        }
     }
 
 
@@ -23,12 +26,20 @@ public class Player : MonoBehaviour
 
     public bool losePawn(Dragable pawn)
     {
-        bool isFounded = pawns.Remove(pawn);
+        int index = pawns.IndexOf(pawn);
 
-        Debug.Log("is Founded : " + isFounded.ToString());
+        if (index == -1)
+        {
+            return false;
+        }
+
+        pawns.RemoveAt(index);
+        Debug.Log(index);
+
+        Destroy(pawn.gameObject, GameConfig.Instance.delayDestroyPawnAfterFall);
         return true;
     }
-    
+
     public bool losePawn(String guid)
     {
         bool isFounded = false;
@@ -37,6 +48,7 @@ public class Player : MonoBehaviour
         {
             if (pawns[i].getGUID() == guid)
             {
+                Destroy(pawns[i].gameObject, GameConfig.Instance.delayDestroyPawnAfterFall);
                 pawns.RemoveAt(i);
                 isFounded = true;
                 break;
@@ -46,9 +58,16 @@ public class Player : MonoBehaviour
         return isFounded;
     }
 
-
-    // Update is called once per frame
-    void Update()
+    //reutrn true if losed
+    public bool checkLosed()
     {
+        if (pawns.Count <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7f4611b12c39b3240b195e1fc89ad78f, type: 2}
+    - target: {fileID: 6593731400425730414, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6593731401742833841, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
       propertyPath: m_Mass
@@ -216,6 +221,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6593731401742833846, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7, type: 3}
 --- !u!1 &101144742
@@ -230,8 +240,9 @@ GameObject:
   - component: {fileID: 101144745}
   - component: {fileID: 101144744}
   - component: {fileID: 101144743}
+  - component: {fileID: 101144747}
   m_Layer: 9
-  m_Name: Cube
+  m_Name: DeadZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,6 +324,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &101144747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101144742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603e6a8572c7b4748ad51a1d50df7e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &102803558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102803560}
+  - component: {fileID: 102803559}
+  m_Layer: 0
+  m_Name: Player1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &102803559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102803558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4a2dc633dab624a976bb9bc1946c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: p1
+  isWhite: 1
+  pawns:
+  - {fileID: 2066054154}
+  - {fileID: 1273535646}
+--- !u!4 &102803560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102803558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.7931762, y: -3.259861, z: -11.460178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &134739593
 GameObject:
@@ -545,6 +616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 726991624}
   - component: {fileID: 726991623}
+  - component: {fileID: 726991625}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -564,8 +636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6830be5c9099d3646900a4a49793232a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseWhiteColor: {r: 0.97348183, g: 1, b: 0.9, a: 0}
-  baseBalckColor: {r: 0, g: 0, b: 0, a: 0}
+  baseWhiteColor: {fileID: 2100000, guid: e360f179ce7ccac478d2c463d8f231a5, type: 2}
+  baseBalckColor: {fileID: 2100000, guid: 7f4611b12c39b3240b195e1fc89ad78f, type: 2}
+  delayDestroyPawnAfterFall: 2
 --- !u!4 &726991624
 Transform:
   m_ObjectHideFlags: 0
@@ -580,6 +653,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726991625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726991622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0784808e61de1b843bb36e31e74cb45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 102803559}
+  player2: {fileID: 1919342174}
 --- !u!1 &843064611
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +776,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e360f179ce7ccac478d2c463d8f231a5, type: 2}
+    - target: {fileID: 6593731400425730414, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6593731401742833841, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
       propertyPath: m_Mass
@@ -713,7 +805,7 @@ PrefabInstance:
     - target: {fileID: 6593731401742833845, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6593731401742833845, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
@@ -769,6 +861,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Castle (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593731401742833846, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7, type: 3}
@@ -881,6 +978,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7f4611b12c39b3240b195e1fc89ad78f, type: 2}
+    - target: {fileID: 6593731400425730414, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6593731401742833841, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
       propertyPath: m_Mass
@@ -905,7 +1007,7 @@ PrefabInstance:
     - target: {fileID: 6593731401742833845, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6593731401742833845, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
@@ -961,6 +1063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Castle (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593731401742833846, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7, type: 3}
@@ -1020,6 +1127,54 @@ MonoBehaviour:
   threshold: 0.1
   throwForce: 5
   _guid: 
+--- !u!1 &1919342173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919342175}
+  - component: {fileID: 1919342174}
+  m_Layer: 0
+  m_Name: Player2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1919342174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919342173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4a2dc633dab624a976bb9bc1946c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: p2
+  isWhite: 0
+  pawns:
+  - {fileID: 1617326249}
+  - {fileID: 1969453427}
+--- !u!4 &1919342175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919342173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.7931762, y: -3.259861, z: -11.460178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969453426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6593731401742833846, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
@@ -1063,6 +1218,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e360f179ce7ccac478d2c463d8f231a5, type: 2}
+    - target: {fileID: 6593731400425730414, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6593731401742833841, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
       propertyPath: m_Mass
@@ -1087,7 +1247,7 @@ PrefabInstance:
     - target: {fileID: 6593731401742833845, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6593731401742833845, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
         type: 3}
@@ -1143,6 +1303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Castle (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593731401742833846, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9097d742d3abdf4f9ecd35dc4f0f1c7, type: 3}
