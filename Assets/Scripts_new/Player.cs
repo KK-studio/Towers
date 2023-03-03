@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isWhite;
     [SerializeField] private List<Dragable> pawns;
 
-    
+
     private void Awake()
     {
         pawns = new List<Dragable>();
@@ -18,21 +18,37 @@ public class Player : MonoBehaviour
 
     public void addPawnToPlayer(Dragable pawn)
     {
-        pawns.Add(pawn);        
+        pawns.Add(pawn);
     }
 
-    public void losePawn(Dragable pawn)
+    public bool losePawn(Dragable pawn)
     {
         bool isFounded = pawns.Remove(pawn);
 
-        Debug.Log("is Founded : "  + isFounded.ToString() );
+        Debug.Log("is Founded : " + isFounded.ToString());
+        return true;
     }
     
-    
+    public bool losePawn(String guid)
+    {
+        bool isFounded = false;
+
+        for (int i = 0; i < pawns.Count; i++)
+        {
+            if (pawns[i].getGUID() == guid)
+            {
+                pawns.RemoveAt(i);
+                isFounded = true;
+                break;
+            }
+        }
+
+        return isFounded;
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
