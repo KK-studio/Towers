@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Dragable : MonoBehaviour
 {
+    [SerializeField] private GameObject arrow;
+    [SerializeField] private float scaler = 0.5f;
     [SerializeField] private Renderer renderer;
     [SerializeField] private bool throwable = true;
     [SerializeField] private float height = 1f;
@@ -12,6 +14,9 @@ public class Dragable : MonoBehaviour
     [SerializeField] private float threshold = 0.1f;
     [SerializeField] private float throwForce = 500f;
     [SerializeField] private String _guid;
+    
+
+
 
     // consts
     private const float ACTIVE_TSH = 0.5f;
@@ -23,14 +28,17 @@ public class Dragable : MonoBehaviour
     private bool isDragging = false;
     private Vector3 startDragPos;
     private Vector3 throwDirection;
-        
-        
+    private GameObject my_arrow;
+
 
     private void Start()
     {
         this._rigidbody = this.GetComponent<Rigidbody>();
         this._guid = Guid.NewGuid().ToString();
         highlightOffMaterial();
+        my_arrow = Instantiate(arrow, transform.position, Quaternion.identity);
+        my_arrow.transform.parent = this.transform;
+        my_arrow.SetActive(false);
     }
 
 
@@ -58,8 +66,9 @@ public class Dragable : MonoBehaviour
                 Debug.Log(hit.transform.name);
                 Vector3 newPos = hit.point;
                 newPos.y += height;
-                throwDirection = transform.position - newPos ;
+                throwDirection = transform.position - newPos;
                 throwDirection.y = 0; //no need move throw sky :)
+                setArrowDirection(throwDirection);
             }
         }
         else
@@ -83,8 +92,11 @@ public class Dragable : MonoBehaviour
     }
 
 
+   
+
     private void OnMouseUp()
     {
+        setArrowDirectionOff();
         if (throwable)
         {
             // Vector3 pos = Input.mousePosition;
@@ -99,11 +111,27 @@ public class Dragable : MonoBehaviour
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
         }
-        
+
         highlightOffMaterial();
         _rigidbody.useGravity = true;
     }
 
+    private void setArrowDirection(Vector3 direction)
+    {
+        // Vector3 normalizedDirection = direction.normalized;
+        float size = direction.magnitude * scaler;
+        my_arrow.SetActive(true);
+        my_arrow.transform.LookAt(transform.position + direction, Vector3.up);
+        Vector3 newScale = my_arrow.transform.localScale;
+        newScale.z = size;
+        my_arrow.transform.localScale = newScale;
+
+    }
+
+    private void setArrowDirectionOff()
+    {
+        my_arrow.SetActive(false);
+    }
 
     private void highlightMaterial()
     {
