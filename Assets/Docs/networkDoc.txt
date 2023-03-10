@@ -1,0 +1,22 @@
+network Dock 
+
+
+client --> server
+reqTofindMatch{
+    msgType = "reqTofindMatch"
+    msgBody = ""
+    msgOwner = ""
+} //done
+
+server --> client 
+response To FindMatch{ //u must waiting now
+    msgType = "resFindMatchWait"
+    msgBody = "yourUserName : id"
+    msgOwner = "server"
+}
+
+findTheMatch{
+    msgType = "MatchFounded"
+    msgBody = "firstond : id , secondOne: enemy , mapid = randomINT "
+    msgOwner = "server"
+} // you must get mod on mapid 

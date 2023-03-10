@@ -7,12 +7,10 @@
     <list default="true" id="b682be64-17c1-4cde-9d9f-7cf74a0e24cd" name="Changes" comment="merged and touch controller added">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Towers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Towers/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts_new/Dragable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_new/Dragable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/arrow-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/arrow-icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/arrow-icon2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/arrow-icon2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +32,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b1444477c1d41c692ef6c02a838308529ac30/e8/b50ca1e4/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd88a7f744c8413fa794c8fc6e0439f6144200/21/06f03792/Material.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b1444477c1d41c692ef6c02a838308529ac30/97/b9595181/List`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/38d3cef14c5a4fc9a92de0991034bc1a3d200/8f/3664a532/MessageEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -100,6 +99,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -147,6 +147,10 @@
       <workItem from="1677830419150" duration="5640000" />
       <workItem from="1677860493823" duration="5192000" />
       <workItem from="1677958027439" duration="2695000" />
+      <workItem from="1678044381554" duration="2059000" />
+      <workItem from="1678278346756" duration="4193000" />
+      <workItem from="1678301961078" duration="2430000" />
+      <workItem from="1678346935204" duration="10682000" />
     </task>
     <task id="LOCAL-00001" summary="merged and touch controller added">
       <created>1677264892860</created>
@@ -228,6 +232,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.5.0/Editor/Editors/CinemachineTrackedDollyEditor.cs">
