@@ -41,6 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scriptes\Editor\CurveMovementEditor.cs" />
      <Compile Include="Assets\Scriptes\Editor\TestEditor.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

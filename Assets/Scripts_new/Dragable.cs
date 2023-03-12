@@ -6,7 +6,8 @@ using UnityEngine;
 public class Dragable : MonoBehaviour
 {
     [SerializeField] private GameObject arrow;
-    [SerializeField] private float scaler = 0.5f;
+    [SerializeField] private float scaler = 0.5f; // for force
+    [SerializeField] private float scalerPreDefinePattern = 2f; // for force
     [SerializeField] private Renderer renderer;
     [SerializeField] private bool throwable = true;
     [SerializeField] private float height = 1f;
@@ -19,6 +20,7 @@ public class Dragable : MonoBehaviour
 
 
     // consts
+    private CurveMovement curveMovement;
     private const float ACTIVE_TSH = 0.5f;
     private const float DEACTIVE_TSH = 5f;
 
@@ -39,6 +41,7 @@ public class Dragable : MonoBehaviour
         my_arrow = Instantiate(arrow, transform.position, Quaternion.identity);
         my_arrow.transform.parent = this.transform;
         my_arrow.SetActive(false);
+        curveMovement = this.GetComponent<CurveMovement>();
     }
 
 
@@ -68,7 +71,9 @@ public class Dragable : MonoBehaviour
                 newPos.y += height;
                 throwDirection = transform.position - newPos;
                 throwDirection.y = 0; //no need move throw sky :)
-                setArrowDirection(throwDirection);
+                // setArrowDirection(throwDirection);
+                curveMovement.drawLineRenderer(new Vector2(throwDirection.x,throwDirection.z),throwDirection.magnitude * scalerPreDefinePattern);
+                
             }
         }
         else
@@ -81,12 +86,9 @@ public class Dragable : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100, layerMask = layerMask))
             {
                 Debug.Log(hit.transform.name);
-                // Debug.Log("hit");
-                // Debug.Log(hit.point);
                 Vector3 newPos = hit.point;
                 newPos.y += height;
                 transform.position = newPos;
-                // StartCoroutine(moveSmooth(newPos));
             }
         }
     }
@@ -99,17 +101,12 @@ public class Dragable : MonoBehaviour
         setArrowDirectionOff();
         if (throwable)
         {
-            // Vector3 pos = Input.mousePosition;
-            // pos.z = 20;
-            // pos = Camera.main.ScreenToWorldPoint(pos);
-            // // Debug.Log("end :" + pos);
-            //
-            // isDragging = false;
-            // throwDirection = startDragPos - pos;
-            // // Debug.Log("throw direction :" + throwDirection);
-            // throwDirection.y = 0; // never jump :)
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
+            //pattern mode
+            curveMovement.startMove(new Vector2(throwDirection.x,throwDirection.z),throwDirection.magnitude * scalerPreDefinePattern );
+            curveMovement.turnOffLineRenderr();
+            //force mode
+            // Rigidbody rb = GetComponent<Rigidbody>();
+            // rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
         }
 
         highlightOffMaterial();
