@@ -22,16 +22,17 @@ public class CurveMovement : MonoBehaviour
 
     private LineRenderer lineRenderer;
     private Rigidbody rigidbody;
-    private float power = 10;
+    private float power = 2;
     
     //consts
-    private const float TIME_STEP = 0.05f;
+    private const float TIME_STEP = 0.15f;
     
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         lineRenderer = GetComponent<LineRenderer>();
         calculateCurve();
+        turnOffLineRenderr();
         // StartCoroutine(runRpeatedly());
     }
 
