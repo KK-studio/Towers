@@ -658,6 +658,9 @@
      <Reference Include="UnityEditor.TestRunner">
      <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.InternalAPIEngineBridge.001">
+     <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
@@ -681,6 +684,15 @@
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
      <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Sprite.Editor">
+     <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Path.Editor">
+     <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InternalAPIEditorBridge.001">
+     <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
      <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
@@ -727,8 +739,20 @@
      <Reference Include="Unity.Mathematics.Editor">
      <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.2D.Common.Runtime">
+     <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.SpriteShape.Editor">
+     <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Common.Editor">
+     <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
      <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.SpriteShape.Runtime">
+     <HintPath>G:/gains/kk studio/Towers/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

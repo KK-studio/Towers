@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b682be64-17c1-4cde-9d9f-7cf74a0e24cd" name="Changes" comment="merged and touch controller added">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Towers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Towers/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scriptes/CurveMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptes/CurveMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Materials/Skybox Cubemap Extended Blend.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Materials/Skybox Cubemap Extended Blend.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Sky.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Sky.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,6 +173,7 @@
       <workItem from="1678608778785" duration="20854000" />
       <workItem from="1678647030153" duration="5127000" />
       <workItem from="1678698603082" duration="1548000" />
+      <workItem from="1678728747187" duration="680000" />
     </task>
     <task id="LOCAL-00001" summary="merged and touch controller added">
       <created>1677264892860</created>
